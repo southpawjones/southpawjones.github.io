@@ -1,5 +1,3 @@
-<h1>Deciso</h1>
-<h2>A Raison Living App for Decision Making</h2>
 <!--pull in Javascript required for collapsible tabs https://jqueryui.com/tabs/#collapsible--> 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -959,3 +957,4 @@ style="width:10%;padding-right:1cm;"><select name="score" id="score1-1" tabIndex
 
 <button onclick="tally()" tabIndex="76" data-step="5" 
 data-intro="Finally, click DECIDE, and Deciso will calculate your winning Option. Enjoy!">DECIDE</button>
+</array></script>
