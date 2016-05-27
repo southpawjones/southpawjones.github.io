@@ -9,17 +9,100 @@
 
 <body>
 <header>
-<h1>Deciso</h1>
-<h3>A <a href="https://raisonliving.com/">Raison Living</a> App for Decision Making</h3>
+<h1>DECISO <span style="font-size:50%">A Decision Making App from <a href="https://raisonliving.com/">Raison Living</a></span></h1>
 </header>
+
+<!--               INTERNAL CSS                   --> 
+<style>
+body {
+    background-color: linen;
+}
+
+h1, h2, h3 {
+    color: maroon;
+    margin-left: 2%;
+}
+
+#message, button, .buttons {
+    margin-left: 2%;
+}
+
+button {
+	background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#button-div {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.ital {
+	font-style: italic;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+} 
+
+// alternating row colors
+.nocolor {background: initial}
+#nocolor {background: initial}
+tr:nth-child(even) {background: #FFF}
+
+table, th, td { text-align: left;
+	            vertical-align: top;
+               }
+               
+.ui-tabs .ui-tabs-nav {
+    text-align: center;
+}
+
+.ui-tabs .ui-tabs-nav li {
+    float: none !important;
+    display: inline-block;
+}
+</style>
 
 <!--pull in Javascript required for collapsible tabs https://jqueryui.com/tabs/#collapsible--> 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-<!-- noformat on -->
 <script type="text/javascript">
+
+// testing script to show/hide column
+        $(document).ready(function() {
+            $('#btnHide5').click(function() {
+                $('td:nth-child(5),th:nth-child(5)').toggle();
+            });
+        });
+        $(document).ready(function() {
+            $('#btnHide4').click(function() {
+                $('td:nth-child(6),th:nth-child(6)').toggle();
+            });
+        });
+        $(document).ready(function() {
+            $('#btnHide3').click(function() {
+                $('td:nth-child(7),th:nth-child(7)').toggle();
+            });
+        });
+// END TEST
+
+// testing script to show/hide row
+        $(document).ready(function() {
+            $('#btnAdd').click(function() {
+                $('tr:nth-child(11)').toggle();
+            });
+        });
+// END TEST
+
 function importanceTotal(){
     var array = document.getElementsByName('import');
     var tot=0;
@@ -161,7 +244,7 @@ function tally(){
 // do we have a true winner or a tie?
     if(document.getElementById('importance').value != 100){
     document.getElementById('message').style.color = "red";
-    document.getElementById('message').innerText = "Make sure your Value Importance total is 100 before deciding.";
+    document.getElementById('message').innerText = "Make sure your Consideration Weight total is 100 before deciding.";
     }
     else if (winner !== "not_set"){
     document.getElementById('message').style.color = "green";
@@ -172,9 +255,8 @@ function tally(){
     document.getElementById('message').innerText = "Deciso cannot determine a winner due to a tie. Consider making adjustments to your scores.";
     }
 }
-</script>
 
-  <script>
+// set up instuctional tabs
   $(function() {
     $( "#tabs" ).tabs({
       collapsible: true,
@@ -182,8 +264,16 @@ function tally(){
       heightStyle: "auto",
     });
   });
+  
+// hide Options 3-5 upon page load  
+  $(function(){
+   $('td:nth-child(5),th:nth-child(5)').toggle();
+   $('td:nth-child(6),th:nth-child(6)').toggle();
+   $('td:nth-child(7),th:nth-child(7)').toggle();
+  });
   </script>
- 
+
+  <div style="padding-left:2%;padding-right:2%;" id="chart_tabs">
 <div id="tabs">
   <ul>
     <li><a href="#tabs-1">Introduction</a></li>    
@@ -194,70 +284,101 @@ function tally(){
     <li><a href="#tabs-6">Step 5: Decide</a></li>
   </ul>
   <div id="tabs-1">
-    <p><strong>Click this tab to close the content pane.</strong></p>
-    <p>Welcome to Deciso! If you’re having trouble making a decision on anything from choosing which shoes to wear to figuring out which career path to take, Deciso can help. Deciso determines the best option for you by using a method called weighted scoring. These tabs at the top of the screen walk you though the quick and easy process at the end of which you will click the Decide button and Deciso will give you the best option based on the information you provided. Have fun!</p>
+    <p><strong>Click this tab again to close the content pane.</strong></p>
+    <p>Welcome to Deciso! If you’re having trouble making a decision on anything 
+    from choosing which shoes to wear to figuring out which career path to take, 
+    Deciso can help. These tabs at the top of the screen walk you though the 
+    quick and easy process. When you click the Decide button at the end of the 
+    process, Deciso will give you the best option based on the information you 
+    provided. Have fun!</p>
   </div>
   <div id="tabs-2">
     <p><strong>Click this tab again to close the content pane.</strong></p>
-    <p>What are the options for the decision you are trying to make? Whatever it is you are trying to decide, you have options and the first thing you need to do is make it clear to yourself what those options are. It could be three different job offers you have to choose from or whether or not you want to go on a date tonight.</p>
+    <p><span class="ital">What are the options for the decision you are trying 
+    to make?</span> Whatever 
+    you are trying to decide, you have options and the first thing you need to 
+    do is make it clear what those options are. It could be three different job 
+    offers to choose from or whether or not you want to go on a date tonight. In 
+    the top row of the table below write out 2 to 5 options.</p>
   </div>
   <div id="tabs-3">
     <p><strong>Click this tab again to close the content pane.</strong></p>
-    <p>What do you need to consider in order to choose the best option? When you make a decision, you need to spell out those things that are influencing your decision. If you are deciding on which restaurant to go to, your considerations might be price, convenience, food quality, etc. If your deciding on which city move to, your considerations might be weather, cost of living, job market, etc.</p>
+    <p><span class="ital">What do you need to consider in order to choose the best 
+    option?</span> When you 
+    make a decision, you need to clarify what is influencing your decision. If 
+    you are deciding on which restaurant to go to, your considerations might be 
+    price, convenience, food quality, etc. If you are deciding on which city 
+    move to, your considerations might be weather, cost of living, job market, 
+    etc. In the first column below make a list of all the considerations for the 
+    decision you are trying to make.</p>
   </div>
 <div id="tabs-4">
     <p><strong>Click this tab again to close the content pane.</strong></p>
-    <p>How important are each of your considerations relative to each other? To figure out each consideration’s relative importance, divvy up 100 points among them. The considerations that you feel are most important will get more points, and the considerations that you feel are not quite as important will get fewer points. You may find that you need to make a few adjustments before you get it right.</p>
+    <p><span class="ital">How important are each of your considerations?</span> 
+    To figure out each consideration’s relative importance, divvy up 100 points 
+    among them. The considerations that you feel are most important will get 
+    more points, and the considerations that you feel are not quite as important 
+    will get fewer points. You may find that you need to make a few adjustments 
+    before you get it right.</p>
   </div>
 <div id="tabs-5">
     <p><strong>Click this tab again to close the content pane.</strong></p>
-    <p>On a scale of 1-10, how well does each option score for each of the considerations? If 10 representing a score that addresses a consideration as well as possible and 1 representing a score that does not satisfy a consideration at all, determine how well each option addresses your considerations. For example, if one of your restaurants is expensive and a consideration is price, you might give that options a score of 2 or 3 for that particular consideration.</p>
+    <p><span class="ital">On a scale of 1-10, how well do the options score for 
+    each of the considerations?</span> If 10 representing a score that addresses 
+    a consideration as well as possible and 1 representing a score that does not 
+    satisfy a consideration well at all, determine how each option addresses 
+    your considerations. For example, if one of your restaurants is expensive 
+    and a consideration is price, you might give that restaurant a score of 2 
+    or 3 for that particular consideration.</p>
   </div>
 <div id="tabs-6">
     <p><strong>Click this tab again to close the content pane.</strong></p>
-    <p>Click Decide and see what the best option is for you based on your consideration. What happens if you don’t agree with Deciso’s determination? Take some time and think about why you don’t agree. Are you leaning toward one option in particular? You’ve probably made your decision already. Go for it.</p>
+    <p><strong>Click DECIDE</strong> and see what the best option is for you based on your considerations.</p>
+    <p>What happens if you don’t agree with Deciso’s determination? Take some 
+    time and think about why you don’t agree. Are you leaning toward one option 
+    in particular? You’ve probably made your decision already. Go for it.  </p>
   </div>
 </div>
+</div>
 
-<style>
-// alternating row colors
-.nocolor {background: initial}
-#nocolor {background: initial}
-tr:nth-child(even) {background: #FFF}
-</style>
-<!-- noformat off -->
+<div style="padding-top:2%" class="buttons">
+ <input id="btnHide5" type="button" value="Show/Hide Option 3"/>
+  <input id="btnHide4" type="button" value="Show/Hide Option 4"/>
+   <input id="btnHide3" type="button" value="Show/Hide Option 5"/>
+   <input id="btnAdd" name="btnAdd" type="button" value="Show/Hide Consideration 10"/>
+</div>   
 
-<table style="padding:1%;">
+<div style="padding:2%">
+<table style="padding:2%;border-collapse:collapse;">
 <thead>
-<th style="width:10%;padding-right:1cm;" 
-data-step="1" 
-data-intro="Welcome to Deciso, your online decision-making assistant. Begin with this column by entering 3-10 values that influence your decision. For example, if you're deciding where to eat for lunch, your values might be Location, Price, Calories, Service, Ambience, etc.">Values
-</th><th style="width:10%;padding-right:1cm;" data-step="2" 
-data-intro="Think about how important your Values are, and distribute 100 points amongst them. Five Values of equal importance would each have a score of 20, but some Values are inevitiably more important than others, so you'll likely enter scores like 40, 30, 15, 10, and 5. This section is particularly important in making Deciso work for you.">Value Importance
-</th><th style="width:10%;padding-right:1cm;" data-step="3" 
-data-intro="Now enter 3-5 Options in this top row. In our lunch example, these would be restaurant names."><input type="text" size="10" name="" id="option1" value="Option 1" onfocus="this.select();" onmouseup="return false;" tabIndex="21" /></th>
-<th style="width:10%;padding-right:1cm;"><input type="text" size="10" name="" id="option2" value="Option 2" onfocus="this.select();" onmouseup="return false;" tabIndex="22" /></th>
-<th style="width:10%;padding-right:1cm;"><input type="text" size="10" name="" id="option3" value="Option 3" onfocus="this.select();" onmouseup="return false;" tabIndex="23" /></th>
-<th style="width:10%;padding-right:1cm;"><input type="text" size="10" name="" id="option4" value="Option 4" onfocus="this.select();" onmouseup="return false;" tabIndex="24" /></th>
-<th style="width:10%;padding-right:1cm;"><input type="text" size="10" name="" id="option5" value="Option 5" onfocus="this.select();" onmouseup="return false;" tabIndex="25" /></th>
+<th style="width:14%;padding-right:1cm;">Considerations</th>
+<th style="width:14%;padding-right:1cm;">Consideration Weight</th>
+<th style="width:14%;padding-right:1cm;">
+<input type="text" size="20" name="" id="option1" value="Option 1" onfocus="this.select();" onmouseup="return false;" tabIndex="21" /></th>
+<th style="width:14%;padding-right:1cm;">
+<input type="text" size="20" name="" id="option2" value="Option 2" onfocus="this.select();" onmouseup="return false;" tabIndex="22" /></th>
+<th style="width:14%;padding-right:1cm;">
+<input type="text" size="20" name="" id="option3" value="Option 3" onfocus="this.select();" onmouseup="return false;" tabIndex="23" /></th>
+<th style="width:14%;padding-right:1cm;">
+<input type="text" size="20" name="" id="option4" value="Option 4" onfocus="this.select();" onmouseup="return false;" tabIndex="24" /></th>
+<th style="width:14%;padding-right:1cm;">
+<input type="text" size="20" name="" id="option5" value="Option 5" onfocus="this.select();" onmouseup="return false;" tabIndex="25" /></th>
 </thead>
 
-<tr>
-<td style="width:10%;padding-right:1cm;"></td> 
-<td style="width:10%;padding-right:1cm;" id="total_msg">Must Total 100.</td>
-<td style="width:10%;padding-right:1cm;">Score for Each Value</td>
-<td style="width:10%;padding-right:1cm;">Score for Each Value</td>
-<td style="width:10%;padding-right:1cm;">Score for Each Value</td>
-<td style="width:10%;padding-right:1cm;">Score for Each Value</td>
-<td style="width:10%;padding-right:1cm;">Score for Each Value</td>
+<tr style="padding-top:2cm;">
+<td style="width:10%;"></td> 
+<td style="width:10%;" id="total_msg">Must Total 100.</td>
+<td style="width:10%;">Score for Each Consideration</td>
+<td style="width:10%;">Score for Each Consideration</td>
+<td style="width:10%;">Score for Each Consideration</td>
+<td style="width:10%;">Score for Each Consideration</td>
+<td style="width:10%;">Score for Each Consideration</td>
 </tr>
 
 <tr>
-<td style="width:10%;padding-right:1cm;" tabIndex="1"><input type="text" name="" id="" value="Value 1" tabIndex="1" onfocus="this.select();" onmouseup="return false;" /></td> 
+<td style="width:10%;padding-right:1cm;" tabIndex="1"><input type="text" name="" id="" value="Consideration 1" tabIndex="1" onfocus="this.select();" onmouseup="return false;" /></td> 
 <td style="width:10%;padding-right:1cm;"><input type="text" size="10" name="import" id="import1" oninput="importanceTotal()" tabIndex="11"/></td>
-<td data-step="4" 
-data-intro="Here, you'll assign a score for each Option/Value combination from 1-10. 10 means that an Option perfectly satisfies its corresponding Value. A score of 1 means your Option does not fulfill its Value at all. Ignore any Score that does not have either a Value or an Option; leave them at 0."
-style="width:10%;padding-right:1cm;"><select name="score" id="score1-1" tabIndex="26">
+<td style="width:10%;padding-right:1cm;"><select name="score" id="score1-1" tabIndex="26">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -325,7 +446,7 @@ style="width:10%;padding-right:1cm;"><select name="score" id="score1-1" tabIndex
 </tr>
 
 <tr>
-<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Value 2" tabIndex="2" onfocus="this.select();" onmouseup="return false;" /></td> 
+<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 2" tabIndex="2" onfocus="this.select();" onmouseup="return false;" /></td> 
 <td style="width:10%;padding-right:1cm;"><input type="text" size="10" name="import" id="import2" oninput="importanceTotal()" tabIndex="12"/></td>
 <td style="width:10%;padding-right:1cm;"><select name="score" id="score2-1" tabIndex="31">
   <option value="0">0</option>
@@ -395,7 +516,7 @@ style="width:10%;padding-right:1cm;"><select name="score" id="score1-1" tabIndex
 </tr>
 
 <tr>
-<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Value 3" tabIndex="3" onfocus="this.select();" onmouseup="return false;" /></td> 
+<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 3" tabIndex="3" onfocus="this.select();" onmouseup="return false;" /></td> 
 <td style="width:10%;padding-right:1cm;"><input type="text" size="10" name="import" id="import3" oninput="importanceTotal()" tabIndex="13"/></td>
 <td style="width:10%;padding-right:1cm;"><select name="score" id="score3-1" tabIndex="36">
   <option value="0">0</option>
@@ -465,7 +586,7 @@ style="width:10%;padding-right:1cm;"><select name="score" id="score1-1" tabIndex
 </tr>
 
 <tr>
-<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Value 4" tabIndex="4" onfocus="this.select();" onmouseup="return false;" /></td> 
+<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 4" tabIndex="4" onfocus="this.select();" onmouseup="return false;" /></td> 
 <td style="width:10%;padding-right:1cm;"><input type="text" size="10" name="import" id="import4" oninput="importanceTotal()" tabIndex="14"/></td>
 <td style="width:10%;padding-right:1cm;"><select name="score" id="score4-1" tabIndex="41">
   <option value="0">0</option>
@@ -535,7 +656,7 @@ style="width:10%;padding-right:1cm;"><select name="score" id="score1-1" tabIndex
 </tr>
 
 <tr>
-<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Value 5" tabIndex="5" onfocus="this.select();" onmouseup="return false;" /></td> 
+<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 5" tabIndex="5" onfocus="this.select();" onmouseup="return false;" /></td> 
 <td style="width:10%;padding-right:1cm;"><input type="text" size="10" name="import" id="import5" oninput="importanceTotal()" tabIndex="15"/></td>
 <td style="width:10%;padding-right:1cm;"><select name="score" id="score5-1" tabIndex="46" >
   <option value="0">0</option>
@@ -605,7 +726,7 @@ style="width:10%;padding-right:1cm;"><select name="score" id="score1-1" tabIndex
 </tr>
 
 <tr>
-<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Value 6" tabIndex="6" onfocus="this.select();" onmouseup="return false;" /></td> 
+<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 6" tabIndex="6" onfocus="this.select();" onmouseup="return false;" /></td> 
 <td style="width:10%;padding-right:1cm;"><input type="text" size="10" name="import" id="import6" oninput="importanceTotal()" tabIndex="16"/></td>
 <td style="width:10%;padding-right:1cm;"><select name="score" id="score6-1" tabIndex="51" >
   <option value="0">0</option>
@@ -675,7 +796,7 @@ style="width:10%;padding-right:1cm;"><select name="score" id="score1-1" tabIndex
 </tr>
 
 <tr>
-<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Value 7" tabIndex="7" onfocus="this.select();" onmouseup="return false;" /></td> 
+<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 7" tabIndex="7" onfocus="this.select();" onmouseup="return false;" /></td> 
 <td style="width:10%;padding-right:1cm;"><input type="text" size="10" name="import" id="import7" oninput="importanceTotal()" tabIndex="17"/></td>
 <td style="width:10%;padding-right:1cm;"><select name="score" id="score7-1" tabIndex="56">
   <option value="0">0</option>
@@ -745,7 +866,7 @@ style="width:10%;padding-right:1cm;"><select name="score" id="score1-1" tabIndex
 </tr>
 
 <tr>
-<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Value 8" tabIndex="8" onfocus="this.select();" onmouseup="return false;" /></td> 
+<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 8" tabIndex="8" onfocus="this.select();" onmouseup="return false;" /></td> 
 <td style="width:10%;padding-right:1cm;"><input type="text" size="10" name="import" id="import8" oninput="importanceTotal()" tabIndex="18"/></td>
 <td style="width:10%;padding-right:1cm;"><select name="score" id="score8-1" tabIndex="61">
   <option value="0">0</option>
@@ -815,7 +936,7 @@ style="width:10%;padding-right:1cm;"><select name="score" id="score1-1" tabIndex
 </tr>
 
 <tr>
-<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Value 9" tabIndex="9" onfocus="this.select();" onmouseup="return false;" /></td> 
+<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 9" tabIndex="9" onfocus="this.select();" onmouseup="return false;" /></td> 
 <td style="width:10%;padding-right:1cm;"><input type="text" size="10" name="import" id="import9" oninput="importanceTotal()" tabIndex="19"/></td>
 <td style="width:10%;padding-right:1cm;"><select name="score" id="score9-1" tabIndex="66">
   <option value="0">0</option>
@@ -884,8 +1005,8 @@ style="width:10%;padding-right:1cm;"><select name="score" id="score1-1" tabIndex
 </select></td>
 </tr>
 
-<tr>
-<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Value 10" tabIndex="10"onfocus="this.select();" onmouseup="return false;" /></td> 
+<tr id="td1" class="td1">
+<td style="width:10%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 10" tabIndex="10"onfocus="this.select();" onmouseup="return false;" /></td> 
 <td style="width:10%;padding-right:1cm;"><input type="text" size="10" name="import" id="import10" oninput="importanceTotal()" tabIndex="20"/></td>
 <td style="width:10%;padding-right:1cm;"><select name="score" id="score10-1" tabIndex="71">
   <option value="0">0</option>
@@ -967,11 +1088,13 @@ style="width:10%;padding-right:1cm;"><select name="score" id="score1-1" tabIndex
 </tr>
 
 </table>
+</div>
 
 <div id="message"></div>
 
-<button onclick="tally()" tabIndex="76" data-step="5" 
-data-intro="Finally, click DECIDE, and Deciso will calculate your winning Option. Enjoy!">DECIDE</button>
+<div id="button-div">
+<button onclick="tally()" tabIndex="76">DECIDE</button>
+</div>
 
 </body>
 </html>
