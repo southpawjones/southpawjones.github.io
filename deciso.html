@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <title>Deciso</title>
+    
+<!-- Google Analytics use UA-61551098-1 when finished -->
+<!-- source: https://developers.google.com/analytics/devguides/collection/analyticsjs/#the_javascript_tracking_snippet -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-XXXXX-Y', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
 </head>
 
 <body>
@@ -28,23 +39,27 @@ h1, h2, h3 {
 }
 
 button {
-	background-color: #4CAF50; /* Green */
+	background-color: #00008B; /* DarkBlue */
     border: none;
     color: white;
-    padding: 10px 32px;
+    padding: 5px 20px;
     text-align: center;
     text-decoration: none;
-  /*  display: inline-block; */
     font-size: 16px;
 }
 
+.decide_button {
+	background-color: #008000; /* Darker Green */
+    padding: 20px 32px;
+}
+
 .remove {
-	background-color:red; 
+	background-color:#FF0000; /* Red */
 }
 
 .button-div {
 	padding-top: 2%;
-    padding-bottom: 2%;
+    padding-bottom: 2%; 
     padding-left: 2%;
     text-align: left;
 }
@@ -82,9 +97,9 @@ table, th, td { text-align: left;
 </style>
 
 <!--pull in Javascript required for collapsible tabs https://jqueryui.com/tabs/#collapsible--> 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 <script type="text/javascript">
 
@@ -376,7 +391,7 @@ function tally(){
     <li><a href="#tabs-6">Step 5: Decide</a></li>
   </ul>
   <div id="tabs-1">
-    <p><strong>Click this tab again to close the content pane.</strong></p>
+    <p><small>Click the tab again to close the content pane.</small></p>
     <p>Welcome to Deciso! If you’re having trouble making a decision on anything 
     from choosing which shoes to wear to figuring out which career path to take, 
     Deciso can help. These tabs at the top of the screen walk you though the 
@@ -385,16 +400,19 @@ function tally(){
     provided. Have fun!</p>
   </div>
   <div id="tabs-2">
-    <p><strong>Click this tab again to close the content pane.</strong></p>
+    <p><small>Click the tab again to close the content pane.</small></p>
     <p><span class="ital">What are the options for the decision you are trying 
     to make?</span> Whatever 
     you are trying to decide, you have options and the first thing you need to 
     do is make it clear what those options are. It could be three different job 
     offers to choose from or whether or not you want to go on a date tonight. In 
     the top row of the table below write out 2 to 5 options.</p>
+    <p>If you would like to add more than two options (up to five total) just 
+    click the <strong>Add Options</strong> button at the top of the table. 
+    You can remove options later if you change your mind.</p>
   </div>
   <div id="tabs-3">
-    <p><strong>Click this tab again to close the content pane.</strong></p>
+    <p><small>Click the tab again to close the content pane.</small></p>
     <p><span class="ital">What do you need to consider in order to choose the best 
     option?</span> When you make a decision, you need to clarify what is 
     influencing your decision. If you are deciding on which restaurant to go to, 
@@ -409,9 +427,12 @@ function tally(){
     why when you get to score your options. In the mean time, in the first 
     column below make a list of all the considerations for the decision you 
     are trying to make.</p>
+    <p>If you would like to add more than three considerations (up to ten total) 
+    just click the <strong>Add Considerations</strong> button at the top of the 
+    table. You can remove considerations later if you change your mind.</p>
   </div>
 <div id="tabs-4">
-    <p><strong>Click this tab again to close the content pane.</strong></p>
+    <p><small>Click the tab again to close the content pane.</small></p>
     <p><span class="ital">How important are each of your considerations?</span> 
     To figure out each consideration’s relative importance, divvy up 100 points 
     among them. The considerations that you feel are most important will get 
@@ -420,7 +441,7 @@ function tally(){
     before you get it right.</p>
   </div>
 <div id="tabs-5">
-    <p><strong>Click this tab again to close the content pane.</strong></p>
+    <p><small>Click the tab again to close the content pane.</small></p>
     <p><span class="ital">On a scale of 1-10, how well do the options score for 
     each of the considerations?</span> Determine how well each option addresses 
     your considerations with 10 being total satisfaction (it is possible for 
@@ -435,7 +456,7 @@ function tally(){
     dislike the color blue.</p>
   </div>
 <div id="tabs-6">
-    <p><strong>Click this tab again to close the content pane.</strong></p>
+    <p><small>Click the tab again to close the content pane.</small></p>
     <p><strong>Click DECIDE</strong> and see what the best option is for you 
     based on your considerations.</p>
     <p>What happens if you don’t agree with Deciso’s determination? Take some 
@@ -448,10 +469,10 @@ function tally(){
 <div id="button-add-remove" class="button-div">
   <table style="width:100%">
   <tr>
-    <td width="25%"><button id="btnAddOption" />ADD OPTION</button></td>
-    <td width="25%"><button class="remove" id="btnRemoveOption" />REMOVE OPTION</button></td> 
     <td width="25%"><button id="btnAddValue" />ADD CONSIDERATION</button></td>
     <td width="25%"><button class="remove" id="btnRemoveValue" />REMOVE CONSIDERATION</button></td>
+    <td width="25%"><button id="btnAddOption" />ADD OPTION</button></td>
+    <td width="25%"><button class="remove" id="btnRemoveOption" />REMOVE OPTION</button></td> 
   </tr>
   </table>
 </div>   
@@ -1201,7 +1222,7 @@ function tally(){
 <div id="message"></div>
 
 <div class="button-div">
-<button onclick="tally()" tabIndex="76">DECIDE</button>
+<button class="decide_button" onclick="tally()" tabIndex="76">DECIDE</button>
 </div>
 
 </body>
