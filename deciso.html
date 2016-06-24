@@ -1,29 +1,32 @@
+<!-- Single page decision-making web app 
+Developed by Charles "Southpaw" Jones for Raison Living
+https://github.com/southpawjones
+http://southpawjones.com/ -->  
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>Deciso</title>
-    
-<!-- Google Analytics use UA-61551098-1 when finished -->
-<!-- source: https://developers.google.com/analytics/devguides/collection/analyticsjs/#the_javascript_tracking_snippet -->
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-XXXXX-Y', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-<!-- End Google Analytics -->
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deciso</title>
+ 
+  <!-- Google Analytics    
+  source: https://developers.google.com/analytics/devguides/collection/analyticsjs/#the_javascript_tracking_snippet -->
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-61551098-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <!-- End Google Analytics -->
 </head>
 
 <body>
 <header>
-<h1>DECISO <span style="font-size:50%">A Decision Making App from <a href="https://raisonliving.com/">Raison Living</a></span></h1>
+  <h1>DECISO <span style="font-size:50%">A Decision Making App from <a href="https://raisonliving.com/">Raison Living</a></span></h1>
 </header>
 
-<!--               INTERNAL CSS                   --> 
+<!------- INTERNAL CSS -------> 
 <style>
 body {
     background-color: linen;
@@ -95,11 +98,14 @@ table, th, td { text-align: left;
     display: inline-block;
 }
 </style>
+<!------- END INTERNAL CSS -------> 
 
+
+<!------- INTERNAL JAVASCRIPT -------> 
 <!--pull in Javascript required for collapsible tabs https://jqueryui.com/tabs/#collapsible--> 
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 <script type="text/javascript">
 
@@ -162,7 +168,8 @@ table, th, td { text-align: left;
                   $('td:nth-child(7),th:nth-child(7)').hide();
                 }
             });
-// testing script to show/hide row
+            
+// show/hide row
             $('#btnAddValue').click(function() {
                 values = values + 1;
             	if(values >= 10){
@@ -221,7 +228,6 @@ table, th, td { text-align: left;
                 }	
             });
         });
-// END TESTS
 
 function importanceTotal(){
     var array = document.getElementsByName('import');
@@ -377,10 +383,10 @@ function tally(){
     document.getElementById('message').innerText = "Deciso cannot determine a winner due to a tie. Consider making adjustments to your scores.";
     }
 }
+</script>
+<!------- END INTERNAL JAVASCRIPT -------> 
 
-  </script>
-
-  <div style="padding-left:2%;padding-right:2%;" id="chart_tabs">
+<div style="padding-left:2%;padding-right:2%;" id="chart_tabs">
 <div id="tabs">
   <ul>
     <li><a href="#tabs-1">Introduction</a></li>    
@@ -431,7 +437,7 @@ function tally(){
     just click the <strong>Add Considerations</strong> button at the top of the 
     table. You can remove considerations later if you change your mind.</p>
   </div>
-<div id="tabs-4">
+  <div id="tabs-4">
     <p><small>Click the tab again to close the content pane.</small></p>
     <p><span class="ital">How important are each of your considerations?</span> 
     To figure out each consideration’s relative importance, divvy up 100 points 
@@ -440,7 +446,7 @@ function tally(){
     will get fewer points. You may find that you need to make a few adjustments 
     before you get it right.</p>
   </div>
-<div id="tabs-5">
+  <div id="tabs-5">
     <p><small>Click the tab again to close the content pane.</small></p>
     <p><span class="ital">On a scale of 1-10, how well do the options score for 
     each of the considerations?</span> Determine how well each option addresses 
@@ -455,7 +461,7 @@ function tally(){
     still has a chance to get some points depending on how much you like or 
     dislike the color blue.</p>
   </div>
-<div id="tabs-6">
+  <div id="tabs-6">
     <p><small>Click the tab again to close the content pane.</small></p>
     <p><strong>Click DECIDE</strong> and see what the best option is for you 
     based on your considerations.</p>
@@ -480,34 +486,34 @@ function tally(){
 <div style="padding-bottom:2%;padding-left:2%;padding-right:2%;">
 <table style="padding:2%;border-collapse:collapse;">
 <thead>
-<th style="width:14%;padding-right:1cm;">Considerations</th>
-<th style="width:14%;padding-right:1cm;">Consideration Weight</th>
-<th style="width:14%;padding-right:1cm;">
-<input type="text" size="20" name="" id="option1" value="Option 1" onfocus="this.select();" onmouseup="return false;" tabIndex="21" /></th>
-<th style="width:14%;padding-right:1cm;">
-<input type="text" size="20" name="" id="option2" value="Option 2" onfocus="this.select();" onmouseup="return false;" tabIndex="22" /></th>
-<th style="width:14%;padding-right:1cm;">
-<input type="text" size="20" name="" id="option3" value="Option 3" onfocus="this.select();" onmouseup="return false;" tabIndex="23" /></th>
-<th style="width:14%;padding-right:1cm;">
-<input type="text" size="20" name="" id="option4" value="Option 4" onfocus="this.select();" onmouseup="return false;" tabIndex="24" /></th>
-<th style="width:14%;padding-right:1cm;">
-<input type="text" size="20" name="" id="option5" value="Option 5" onfocus="this.select();" onmouseup="return false;" tabIndex="25" /></th>
+  <th style="width:14%;padding-right:1cm;">Considerations</th>
+  <th style="width:14%;padding-right:1cm;">Consideration Weight</th>
+  <th style="width:14%;padding-right:1cm;">
+  <input type="text" size="20" name="" id="option1" value="Option 1" onfocus="this.select();" onmouseup="return false;" tabIndex="21" /></th>
+  <th style="width:14%;padding-right:1cm;">
+  <input type="text" size="20" name="" id="option2" value="Option 2" onfocus="this.select();" onmouseup="return false;" tabIndex="22" /></th>
+  <th style="width:14%;padding-right:1cm;">
+  <input type="text" size="20" name="" id="option3" value="Option 3" onfocus="this.select();" onmouseup="return false;" tabIndex="23" /></th>
+  <th style="width:14%;padding-right:1cm;">
+  <input type="text" size="20" name="" id="option4" value="Option 4" onfocus="this.select();" onmouseup="return false;" tabIndex="24" /></th>
+  <th style="width:14%;padding-right:1cm;">
+  <input type="text" size="20" name="" id="option5" value="Option 5" onfocus="this.select();" onmouseup="return false;" tabIndex="25" /></th>
 </thead>
 
 <tr style="padding-top:2cm;">
-<td style="width:14%;"></td> 
-<td style="width:14%;" id="total_msg">Must Total 100</td>
-<td style="width:14%;">Score for Each Consideration</td>
-<td style="width:14%;">Score for Each Consideration</td>
-<td style="width:14%;">Score for Each Consideration</td>
-<td style="width:14%;">Score for Each Consideration</td>
-<td style="width:14%;">Score for Each Consideration</td>
+  <td style="width:14%;"></td> 
+  <td style="width:14%;" id="total_msg">Must Total 100</td>
+  <td style="width:14%;">Score for Each Consideration</td>
+  <td style="width:14%;">Score for Each Consideration</td>
+  <td style="width:14%;">Score for Each Consideration</td>
+  <td style="width:14%;">Score for Each Consideration</td>
+  <td style="width:14%;">Score for Each Consideration</td>
 </tr>
 
 <tr>
-<td style="width:14%;padding-right:1cm;" tabIndex="1"><input type="text" name="" id="" value="Consideration 1" tabIndex="1" onfocus="this.select();" onmouseup="return false;" /></td> 
-<td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import1" oninput="importanceTotal()" tabIndex="11"/></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score1-1" tabIndex="26">
+  <td style="width:14%;padding-right:1cm;" tabIndex="1"><input type="text" name="" id="" value="Consideration 1" tabIndex="1" onfocus="this.select();" onmouseup="return false;" /></td> 
+  <td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import1" oninput="importanceTotal()" tabIndex="11"/></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score1-1" tabIndex="26">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -519,8 +525,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score1-2" tabIndex="27">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score1-2" tabIndex="27">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -532,8 +538,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score1-3" tabIndex="28" >
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score1-3" tabIndex="28" >
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -545,8 +551,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score1-4" tabIndex="29">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score1-4" tabIndex="29">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -558,8 +564,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score1-5" tabIndex="30">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score1-5" tabIndex="30">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -571,13 +577,13 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
+  </select></td>
 </tr>
 
 <tr>
-<td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 2" tabIndex="2" onfocus="this.select();" onmouseup="return false;" /></td> 
-<td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import2" oninput="importanceTotal()" tabIndex="12"/></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score2-1" tabIndex="31">
+  <td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 2" tabIndex="2" onfocus="this.select();" onmouseup="return false;" /></td> 
+  <td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import2" oninput="importanceTotal()" tabIndex="12"/></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score2-1" tabIndex="31">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -589,8 +595,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score2-2" tabIndex="32">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score2-2" tabIndex="32">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -602,8 +608,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score2-3" tabIndex="33" >
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score2-3" tabIndex="33" >
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -615,8 +621,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score2-4" tabIndex="34">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score2-4" tabIndex="34">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -628,8 +634,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score2-5" tabIndex="35">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score2-5" tabIndex="35">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -641,13 +647,13 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
+  </select></td>
 </tr>
 
 <tr>
-<td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 3" tabIndex="3" onfocus="this.select();" onmouseup="return false;" /></td> 
-<td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import3" oninput="importanceTotal()" tabIndex="13"/></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score3-1" tabIndex="36">
+  <td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 3" tabIndex="3" onfocus="this.select();" onmouseup="return false;" /></td> 
+  <td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import3" oninput="importanceTotal()" tabIndex="13"/></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score3-1" tabIndex="36">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -659,8 +665,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score3-2" tabIndex="37">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score3-2" tabIndex="37">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -672,8 +678,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score3-3" tabIndex="38" >
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score3-3" tabIndex="38" >
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -685,8 +691,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score3-4" tabIndex="39">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score3-4" tabIndex="39">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -698,8 +704,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score3-5" tabIndex="40">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score3-5" tabIndex="40">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -711,13 +717,13 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
+  </select></td>
 </tr>
 
 <tr>
-<td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 4" tabIndex="4" onfocus="this.select();" onmouseup="return false;" /></td> 
-<td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import4" oninput="importanceTotal()" tabIndex="14"/></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score4-1" tabIndex="41">
+  <td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 4" tabIndex="4" onfocus="this.select();" onmouseup="return false;" /></td> 
+  <td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import4" oninput="importanceTotal()" tabIndex="14"/></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score4-1" tabIndex="41">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -729,8 +735,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score4-2" tabIndex="42">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score4-2" tabIndex="42">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -742,8 +748,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score4-3" tabIndex="43">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score4-3" tabIndex="43">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -755,8 +761,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score4-4" tabIndex="44">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score4-4" tabIndex="44">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -768,8 +774,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score4-5" tabIndex="45">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score4-5" tabIndex="45">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -781,13 +787,13 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
+  </select></td>
 </tr>
 
 <tr>
-<td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 5" tabIndex="5" onfocus="this.select();" onmouseup="return false;" /></td> 
-<td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import5" oninput="importanceTotal()" tabIndex="15"/></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score5-1" tabIndex="46" >
+  <td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 5" tabIndex="5" onfocus="this.select();" onmouseup="return false;" /></td> 
+  <td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import5" oninput="importanceTotal()" tabIndex="15"/></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score5-1" tabIndex="46" >
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -799,8 +805,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score5-2" tabIndex="47">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score5-2" tabIndex="47">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -812,8 +818,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score5-3" tabIndex="48">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score5-3" tabIndex="48">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -825,8 +831,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score5-4" tabIndex="49">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score5-4" tabIndex="49">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -838,8 +844,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score5-5" tabIndex="50">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score5-5" tabIndex="50">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -851,13 +857,13 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
+  </select></td>
 </tr>
 
 <tr>
-<td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 6" tabIndex="6" onfocus="this.select();" onmouseup="return false;" /></td> 
-<td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import6" oninput="importanceTotal()" tabIndex="16"/></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score6-1" tabIndex="51" >
+  <td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 6" tabIndex="6" onfocus="this.select();" onmouseup="return false;" /></td> 
+  <td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import6" oninput="importanceTotal()" tabIndex="16"/></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score6-1" tabIndex="51" >
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -869,8 +875,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score6-2" tabIndex="52">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score6-2" tabIndex="52">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -882,8 +888,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score6-3" tabIndex="53" >
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score6-3" tabIndex="53" >
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -895,8 +901,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score6-4" tabIndex="54">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score6-4" tabIndex="54">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -908,8 +914,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score6-5" tabIndex="55">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score6-5" tabIndex="55">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -921,13 +927,13 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
+  </select></td>
 </tr>
 
 <tr>
-<td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 7" tabIndex="7" onfocus="this.select();" onmouseup="return false;" /></td> 
-<td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import7" oninput="importanceTotal()" tabIndex="17"/></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score7-1" tabIndex="56">
+  <td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 7" tabIndex="7" onfocus="this.select();" onmouseup="return false;" /></td> 
+  <td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import7" oninput="importanceTotal()" tabIndex="17"/></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score7-1" tabIndex="56">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -939,8 +945,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score7-2" tabIndex="57">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score7-2" tabIndex="57">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -952,8 +958,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score7-3" tabIndex="58">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score7-3" tabIndex="58">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -965,8 +971,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score7-4" tabIndex="59">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score7-4" tabIndex="59">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -978,8 +984,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score7-5" tabIndex="60">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score7-5" tabIndex="60">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -991,13 +997,13 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
+  </select></td>
 </tr>
 
 <tr>
-<td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 8" tabIndex="8" onfocus="this.select();" onmouseup="return false;" /></td> 
-<td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import8" oninput="importanceTotal()" tabIndex="18"/></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score8-1" tabIndex="61">
+  <td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 8" tabIndex="8" onfocus="this.select();" onmouseup="return false;" /></td> 
+  <td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import8" oninput="importanceTotal()" tabIndex="18"/></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score8-1" tabIndex="61">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -1009,8 +1015,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score8-2" tabIndex="62">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score8-2" tabIndex="62">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -1022,8 +1028,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score8-3" tabIndex="63">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score8-3" tabIndex="63">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -1035,8 +1041,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score8-4" tabIndex="64" >
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score8-4" tabIndex="64" >
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -1048,8 +1054,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score8-5" tabIndex="65">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score8-5" tabIndex="65">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -1061,13 +1067,13 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
+  </select></td>
 </tr>
 
 <tr>
-<td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 9" tabIndex="9" onfocus="this.select();" onmouseup="return false;" /></td> 
-<td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import9" oninput="importanceTotal()" tabIndex="19"/></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score9-1" tabIndex="66">
+  <td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 9" tabIndex="9" onfocus="this.select();" onmouseup="return false;" /></td> 
+  <td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import9" oninput="importanceTotal()" tabIndex="19"/></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score9-1" tabIndex="66">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -1079,8 +1085,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score9-2" tabIndex="67">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score9-2" tabIndex="67">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -1092,8 +1098,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score9-3" tabIndex="68">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score9-3" tabIndex="68">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -1105,8 +1111,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score9-4" tabIndex="69">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score9-4" tabIndex="69">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -1118,8 +1124,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score9-5" tabIndex="70">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score9-5" tabIndex="70">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -1131,13 +1137,13 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
+  </select></td>
 </tr>
 
 <tr id="td1" class="td1">
-<td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 10" tabIndex="10"onfocus="this.select();" onmouseup="return false;" /></td> 
-<td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import10" oninput="importanceTotal()" tabIndex="20"/></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score10-1" tabIndex="71">
+  <td style="width:14%;padding-right:1cm;"><input type="text" name="" id="" value="Consideration 10" tabIndex="10"onfocus="this.select();" onmouseup="return false;" /></td> 
+  <td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="import" id="import10" oninput="importanceTotal()" tabIndex="20"/></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score10-1" tabIndex="71">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -1149,8 +1155,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score10-2" tabIndex="72">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score10-2" tabIndex="72">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -1162,8 +1168,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score10-3" tabIndex="73">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score10-3" tabIndex="73">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -1175,8 +1181,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score10-4" tabIndex="74">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score10-4" tabIndex="74">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -1188,8 +1194,8 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
-<td style="width:14%;padding-right:1cm;"><select name="score" id="score10-5" tabIndex="75">
+  </select></td>
+  <td style="width:14%;padding-right:1cm;"><select name="score" id="score10-5" tabIndex="75">
   <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -1201,19 +1207,18 @@ function tally(){
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select></td>
+  </select></td>
 </tr>
 
-
 <tr class="nocolor" id="nocolor">
-<td style="width:14%;padding-right:1cm;">&nbsp;</td> 
-<td style="width:14%;padding-right:1cm;">
-<input type="text" size="10" name="importance" id="importance" style="font-weight:bold;" /> Total</td> 
-<td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="tally1" id="tally1"/></td> 
-<td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="tally2" id="tally2"/></td> 
-<td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="tally3" id="tally3"/></td> 
-<td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="tally4" id="tally4"/></td> 
-<td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="tally5" id="tally5"/></td> 
+  <td style="width:14%;padding-right:1cm;">&nbsp;</td> 
+  <td style="width:14%;padding-right:1cm;">
+  <input type="text" size="10" name="importance" id="importance" style="font-weight:bold;" /> Total</td> 
+  <td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="tally1" id="tally1"/></td> 
+  <td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="tally2" id="tally2"/></td> 
+  <td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="tally3" id="tally3"/></td> 
+  <td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="tally4" id="tally4"/></td> 
+  <td style="width:14%;padding-right:1cm;"><input type="text" size="10" name="tally5" id="tally5"/></td> 
 </tr>
 
 </table>
@@ -1222,7 +1227,7 @@ function tally(){
 <div id="message"></div>
 
 <div class="button-div">
-<button class="decide_button" onclick="tally()" tabIndex="76">DECIDE</button>
+  <button class="decide_button" onclick="tally()" tabIndex="76">DECIDE</button>
 </div>
 
 </body>
